@@ -1,0 +1,31 @@
+<%- include('./partials/header.ejs') -%> 
+
+<div class="container">
+    <h1>Listado de productos</h1>
+    <table class="table table-striped table-hover">
+        <tr>
+            <th class="width=10%">ID</th>
+            <th class="width=70%">Producto</th>
+            <th class="width=10%">Precio</th>
+            <th class="width=10%">Imagen</th>
+        </tr>
+        <% if(data.length){ %> 
+            <% for(dato of data){ %> 
+            <tr>
+                <td align="center"><%= dato.id %></td>
+                <td><%= dato.title %></td>
+                <td align="right"><%= dato.price %></td>
+                <td align="center"><img src="<%= dato.thumbnail %>" width="50px" height="50px"/></td>
+            </tr>
+            <% }; %> 
+        <% }else{ %> 
+            <tr>
+                <td align="center" colspan="4"><h2>No se encontraron productos</h2></td>
+            </tr>
+        <% } %> 
+    </table>
+    <br/>
+    <a href="/" class="btn btn-danger" style="width: 100%;">Volver</a>
+</div>
+
+<%- include('./partials/footer.ejs') -%> 
